@@ -1,0 +1,21 @@
+.itemCont:not(:last-child){
+    margin-bottom: 15px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 15px;
+}
+.headingCont{
+    margin-bottom: 15px;
+}
+.itemName{
+    color:#61dafb;
+    font-size: 22px;
+}
+.itemPrice{
+    color: #3d8ca1;
+    font-size: 20px;
+}
+.itemCategory{
+    color: rgb(97, 97, 97);
+    font-weight: 600;
+    font-size: 18px;
+}

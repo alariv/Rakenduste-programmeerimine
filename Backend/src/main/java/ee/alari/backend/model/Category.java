@@ -1,4 +1,3 @@
-/*
 package ee.alari.backend.model;
 
 import lombok.AllArgsConstructor;
@@ -28,4 +27,3 @@ public class Category {
 enum CategoryType {
     PREMIUM, DELUXE, BASIC
 }
-*/

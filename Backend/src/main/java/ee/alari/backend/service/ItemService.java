@@ -19,5 +19,6 @@ public class ItemService {
     }
 
     public void saveItems(Item item) {
+        itemRepository.save(item);
     }
 }

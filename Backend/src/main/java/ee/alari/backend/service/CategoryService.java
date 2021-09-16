@@ -1,10 +1,8 @@
-/*
 package ee.alari.backend.service;
 
 
-import ee.alari.backend.model.Item;
+import ee.alari.backend.model.Category;
 import ee.alari.backend.repository.CategoryRepository;
-import ee.alari.backend.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,11 +14,11 @@ public class CategoryService {
     @Autowired
     CategoryRepository categoryRepository;
 
-    public List<Item> getCategories(){
+    public List<Category> getCategories(){
         return categoryRepository.findAll();
     }
 
-    public void saveCategory(Item item) {
+    public void saveCategory(Category category) {
+        categoryRepository.save(category);
     }
 }
-*/
