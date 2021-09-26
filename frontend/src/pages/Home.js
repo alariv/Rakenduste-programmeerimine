@@ -1,19 +1,31 @@
-
-import Item from '../components/Item';
-
+import ItemList from '../components/ItemList';
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 function Home() {
-    return (
-        <div className="App">
-      <div className="headingCont">
-          <strong>HOME</strong> (testing-testing)
-      </div>
-      <Item name="esimene ese" price="11€" category="BASIC" key="1"/>
-      <Item name="teine ese" price="14€" category="DELUXE" key="2"/>
-      <Item name="kolmas ese" price="49€" category="PREMIUM" key="3"/>
-      </div>
-    );
-  }
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedItems, setLoadedItems] = useState([]);
   
-  export default Home;
-  
+  useEffect(()=>{
+    fetch('http://localhost:8080/items').then(res => {
+      return res.json();
+    }).then(data =>{
+      console.log(data);
+      setIsLoading(false);
+      setLoadedItems(data);
+    });
+  },[])
+
+
+  return (
+    <div>
+      <div className="itemsCont">
+        {isLoading ? <div>Laen andmeid...</div>
+        :<ItemList items={loadedItems} />
+        }
+      </div>
+    </div>
+  )
+}
+
+export default Home;

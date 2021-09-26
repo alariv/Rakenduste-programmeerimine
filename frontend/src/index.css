@@ -11,3 +11,53 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+body{
+  
+}
+.itemsCont{
+  display: flex;
+  justify-content: center;
+}
+.item{
+  display: flex;
+}
+.isSaved{
+  display: block;
+  background-color: darkgreen;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px;
+}
+.itemDetails{
+  margin: 5px 10px;
+  padding: 10px;
+  background-color: #bce4ef;
+  min-width: 100px;
+  text-align: center;
+  border: 2px solid #00495f;
+  border-radius: 5px; 
+  cursor: pointer;
+}
+.itemName {
+  font-size: 22px;
+  text-transform: capitalize;
+  color: #00495f;
+  font-weight: 600;
+}
+.itemPrice {
+  font-size: 19px;
+  font-weight: 500;
+  color: #00779b;
+}
+.itemCategory {
+  font-size: 17px;
+  color: #007ba0;
+}
+.itemCategoryType {
+  font-size: 17px;
+  text-transform: uppercase;  
+  color: #007ba0;
+
+}

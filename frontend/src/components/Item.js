@@ -1,20 +1,12 @@
-
-
 function Item(props) {
-  
   return (
-    <div className="itemCont">
-        <div className="itemName">
-        Nimi: { props.name }
-        </div>
-        <div className="itemPrice">
-        Hind: {props.price}
-        </div>
-        <div className="itemCategory">
-        {props.category}
-        </div>
+    <div className="itemDetails">
+      <div className="itemName">{props.name}</div>
+      <div className="itemPrice">{props.price} €</div>
+      <div className="itemCategory">{props.category}</div>
+      <div className="itemCategoryType">{props.type}</div>
     </div>
-  );
+  )
 }
 
 export default Item;

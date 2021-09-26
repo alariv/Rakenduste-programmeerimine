@@ -1,10 +1,9 @@
 function Cart() {
-    return (
-      <div clcassName="item">
-          KÄRU!
-      </div>
-    );
-  }
-  
-  export default Item;
-  
+  return (
+    <div>
+     Ostukorv
+    </div>
+  )
+}
+
+export default Cart;

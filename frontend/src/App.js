@@ -1,26 +1,27 @@
-import logo from './logo.svg';
-import './App.css'
+import './App.css';
+import {Route} from 'react-router-dom';
 import Home from './pages/Home';
-import styles from './main.css';
+import Cart from './pages/Cart';
+import Navbar from './components/Navbar';
+import AddItem from './pages/AddItem';
+import AddCategory from './pages/AddCategory';
 
-import { BrowserRouter, Route, Link } from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Route>
-          <Home></Home>
-        </Route>
-        {/* <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
-      </header>
+    <div>
+      <Navbar />
+      <Route path='/' exact>
+        <Home />
+      </Route>
+      <Route path='/cart'>
+        <Cart />
+      </Route>
+      <Route path='/add-item'>
+        <AddItem />
+      </Route>
+      <Route path='/add-category'>
+        <AddCategory />
+      </Route>
     </div>
   );
 }
