@@ -20,7 +20,7 @@ function Home() {
   return (
     <div>
       <div className="itemsCont">
-        {isLoading ? <div>Laen andmeid...</div>
+        {isLoading ? <h2>Laen andmeid...</h2>
         :<ItemList items={loadedItems} />
         }
       </div>
