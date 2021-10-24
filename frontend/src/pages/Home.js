@@ -13,6 +13,9 @@ function Home() {
       console.log(data);
       setIsLoading(false);
       setLoadedItems(data);
+    }).catch(function(e){
+      setIsLoading(false);
+      setLoadedItems("Päring ei õnnestunud..");
     });
   },[])
 
