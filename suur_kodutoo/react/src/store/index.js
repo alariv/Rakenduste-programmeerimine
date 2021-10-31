@@ -8,7 +8,7 @@ const initialPosts = {
 
 const initialAuth = {
   token: null,
-  user: null
+  user: "admin"
 }
 
 const [combinedReducer, initialState] = combineReducers({

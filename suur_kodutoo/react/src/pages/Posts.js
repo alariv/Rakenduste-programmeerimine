@@ -2,6 +2,7 @@ import { useContext, useState, useRef, useEffect } from "react";
 import { Context } from "../store";
 import { addPost, removePost, updatePosts, updatePost } from "../store/actions";
 import { Button, Input, Table } from "antd";
+import { EditTwoTone } from '@ant-design/icons'
 
 
 
@@ -13,7 +14,11 @@ function Posts() {
   const [state, dispatch] = useContext(Context);
   const inputRef = useRef(null);
   const descInputRef = useRef(null);
+  let posts = state.posts.data
 
+  useEffect(() => {
+    posts = state.posts.data
+  }, [])
 
   const columns = [
     {
@@ -71,14 +76,15 @@ function Posts() {
   }
 
   const addNewPost = () => {
-    console.log(ID!=="" ? "OLEMAS ID : "+ID : Date.now())
+    const thatTime = Date.now()
+    const thatAuthor = state.auth.user;
     const newPost = {
-      Id: ID!=="" ? ID : Date.now(),
-      key: Date.now(),
+      Id: ID!=="" ? ID : thatTime,
+      key: thatTime,
       Title,
       Description,
-      Author: state.auth.user,
-      Edit: <Button onClick={() => {changePost(Date.now(),Title,Description)}}>MUUDA</Button>
+      Author: thatAuthor,
+      Edit: <Button onClick={() => {changePost(thatTime,Title,Description)}} disabled={thatAuthor == state.auth.user ? false : true}>< EditTwoTone /></Button>
     };
 
     // Salvestame andmebaasi ja kui on edukas, 
@@ -105,17 +111,25 @@ function Posts() {
           onChange={(e) => setTitle(e.target.value)}
           autoFocus
         />
-         <Input
+        <Input
           ref={descInputRef}
           type="text"
           value={Description}
           onChange={(e) => setDescription(e.target.value)}
         />
         {state.auth.user ?
-        <Button type="primary" onClick={!changing ? handleSubmit : handleUpdate} >{!changing ? "Postita" : "Muuda"}</Button> : <div style={{color: "red",fontWeight: 600, fontSize: 18}}>POSTITAMISEKS MINE LOGI SISSE</div>}
+        <Button type="primary" onClick={
+          !changing ? 
+            handleSubmit : 
+            handleUpdate} >{
+              !changing ? 
+                "Postita" : 
+                "Muuda"}
+        </Button> : 
+        <div style={{color: "red",fontWeight: 600, fontSize: 18}}>POSTITAMISEKS MINE LOGI SISSE</div>}
       </form>
 
-      <Table dataSource={state.posts.data} columns={columns} />
+      <Table dataSource={posts} columns={columns} />
     </div>
   );
 }
